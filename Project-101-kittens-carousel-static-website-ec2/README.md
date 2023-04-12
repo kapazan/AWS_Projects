@@ -100,3 +100,20 @@ Kittens Carousel is a static website application deployed with Apache Web Server
 ## Resources
 
 - [AWS Cloudformation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)
+
+
+
+## User Data
+
+#! /bin/bash
+yum update -y
+yum install httpd -y
+FOLDER="https://raw.githubusercontent.com/okti3535/my-projects/main/Project-101-kittens-carousel-static-website-ec2/static-web/"
+cd /var/www/html
+wget $FOLDER/index.html
+wget $FOLDER/cat0.jpg
+wget $FOLDER/cat1.jpg
+wget $FOLDER/cat2.jpg
+wget $FOLDER/cat3.png
+systemctl start httpd
+systemctl enable httpd
